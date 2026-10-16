@@ -1,32 +1,32 @@
-class Product {
+class Employee {
     String name;
-    int price, quantity;
+    int salary;
+    static int count = 0;
 
-    Product() {
-        name = "Pen";
-        price = 10;
-        quantity = 2;
+    Employee() {
+        this("Rahul", 20000);
     }
 
-    Product(String n) {
-        name = n;
-        price = 20;
-        quantity = 3;
-    }
-
-    Product(String n, int p, int q) {
-        name = n;
-        price = p;
-        quantity = q;
+    Employee(String name, int salary) {
+        this.name = name;
+        this.salary = salary;
+        count++;
     }
 
     void show() {
-        System.out.println(name + " Total: " + (price * quantity));
+        System.out.println(name + " " + salary);
+    }
+
+    static void total() {
+        System.out.println("Employees: " + count);
     }
 
     public static void main(String[] args) {
-        new Product().show();
-        new Product("Book").show();
-        new Product("Bag", 500, 2).show();
+        Employee e1 = new Employee();
+        Employee e2 = new Employee("Aman", 30000);
+
+        e1.show();
+        e2.show();
+        total();
     }
 }
